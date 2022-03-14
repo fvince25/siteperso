@@ -14,6 +14,7 @@
         "symfony/dotenv": "5.2.*",
         "symfony/flex": "^1.18",
         "symfony/framework-bundle": "5.2.*",
+        "symfony/maker-bundle": "^1.38",
         "symfony/proxy-manager-bridge": "5.2.*",
         "symfony/twig-bundle": "5.2.*",
         "symfony/yaml": "5.2.*",
