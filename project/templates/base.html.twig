@@ -9,14 +9,15 @@
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
-
 </head>
+
 <body>
     {% include 'common/_navbar.html.twig' %}
 
-    {% block body %}
-    {% endblock %}
-
+    <div class="container pt-5">
+        {% block body %}
+        {% endblock %}
+    </div>
 
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
