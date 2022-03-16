@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\NavbarMenuRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,38 +10,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class GeneralController extends AbstractController
 {
 
-    protected $listMenus;
+
 
     public function __construct()
     {
-        $this->listMenus = [
-            [
-                'item' => 'home',
-                'label' => '<i class="fa-solid fa-house"></i>'
-            ], [
-                'item' => 'profil',
-                'label' => 'Profil'
-            ], [
-                'item' => 'skills',
-                'label' => 'Compétences'
-            ], [
-                'item' => 'experiences',
-                'label' => 'Expériences'
-            ], [
-                'item' => 'trainings',
-                'label' => 'Formations'
-            ]
-        ];
     }
 
     /**
      * @Route("/home", name="home_page")
      */
-    public function home(): Response
+    public function home(NavbarMenuRepository $navbarMenuRepository): Response
     {
+
+        $menus = $navbarMenuRepository->findAll();
+
         return $this->render('general/home.html.twig', [
-            'controller_name' => 'home',
-            'listMenus' => $this->listMenus
+            'controller_name' => 'home'
         ]);
     }
 
@@ -50,8 +35,7 @@ class GeneralController extends AbstractController
     public function profil(): Response
     {
         return $this->render('general/profil.html.twig', [
-            'controller_name' => 'profil',
-            'listMenus' => $this->listMenus
+            'controller_name' => 'profil'
         ]);
     }
 
@@ -61,8 +45,7 @@ class GeneralController extends AbstractController
     public function skills(): Response
     {
         return $this->render('general/skills.html.twig', [
-            'controller_name' => 'skills',
-            'listMenus' => $this->listMenus
+            'controller_name' => 'skills'
         ]);
     }
 
@@ -72,8 +55,7 @@ class GeneralController extends AbstractController
     public function experiences(): Response
     {
         return $this->render('general/experiences.html.twig', [
-            'controller_name' => 'experiences',
-            'listMenus' => $this->listMenus
+            'controller_name' => 'experiences'
         ]);
     }
 
@@ -83,8 +65,7 @@ class GeneralController extends AbstractController
     public function trainings(): Response
     {
         return $this->render('general/trainings.html.twig', [
-            'controller_name' => 'trainings',
-            'listMenus' => $this->listMenus
+            'controller_name' => 'trainings'
         ]);
     }
 }
