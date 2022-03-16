@@ -12,9 +12,12 @@
 </head>
 
 <body>
+
     {% include 'common/_navbar.html.twig' %}
 
     <div class="container pt-5">
+        {{ render_esi(path('ch_cookie_consent.show')) }}
+        {{ render_esi(path('ch_cookie_consent.show_if_cookie_consent_not_set')) }}
         {% block body %}
         {% endblock %}
     </div>
