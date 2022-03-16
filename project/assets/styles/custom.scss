@@ -63,3 +63,9 @@ $bs-primary: #122034;
   --bs-body-color: #212529;
   --bs-body-bg: #fff;
 }
+
+.ch-cookie-consent__category {
+  border-bottom: none;
+  padding: 15px 0;
+  display: flex;
+}
