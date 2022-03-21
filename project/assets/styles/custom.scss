@@ -7,6 +7,21 @@ h1 {
   padding-bottom: 12px;
 }
 
+.cookies-bloc {
+  position: fixed;
+  right: 0;
+  bottom: 30px;
+  background-color: black;
+  z-index: 999;
+  transform: translateY(0);
+  transition: 0.2s ease-in-out transform;
+
+}
+
+.disapeared {
+  transform: translateY(120%);
+}
+
 $primary: #122034;
 $bs-primary: #122034;
 

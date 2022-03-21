@@ -9,9 +9,41 @@
 import './styles/app.scss';
 
 // You can specify which plugins you need
-import { Tooltip, Toast, Popover } from 'bootstrap';
+import {Tooltip, Toast, Popover} from 'bootstrap';
 
 // start the Stimulus application
 import './bootstrap';
 
 
+import $ from 'jquery';
+
+$(document).ready(function () {
+
+    $("[data_ajax='ajaxCall']").click(function (event) {
+            event.preventDefault();
+            $.ajax({url: $(this).attr('href') + "?ajaxCall=true"});
+        }
+    )
+})
+
+
+$(document).ajaxSuccess(function (event, request, settings) {
+    let response = JSON.parse(request.responseText);
+    console.log(response, response['type']);
+
+    if (response['type'] === "info") {
+        $('#ajaxReceive')
+            .toggleClass("noDisplay")
+            .html(response['message']);
+    }
+
+    if (response['type'] === "cookies") {
+        $('#ajaxReceive')
+            .toggleClass("noDisplay")
+            .html(response['message']);
+    }
+
+
+
+
+});
