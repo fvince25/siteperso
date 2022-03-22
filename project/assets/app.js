@@ -19,7 +19,13 @@ import $ from 'jquery';
 
 $(document).ready(function () {
 
-    $("[data_ajax='ajaxCall']").click(function (event) {
+
+    $('#accept_cookies').click(function () {
+        $('#cookies-bloc').removeClass("appeared").addClass("disappeared")
+    })
+
+
+    $("[data-ajax='ajaxCall']").click(function (event) {
             event.preventDefault();
             $.ajax({url: $(this).attr('href') + "?ajaxCall=true"});
         }
@@ -35,15 +41,13 @@ $(document).ajaxSuccess(function (event, request, settings) {
         $('#ajaxReceive')
             .toggleClass("noDisplay")
             .html(response['message']);
+
     }
 
     if (response['type'] === "cookies") {
-        $('#ajaxReceive')
-            .toggleClass("noDisplay")
-            .html(response['message']);
+        if (response['info'] === "allready_accepted") {
+            $('#cookies-bloc').removeClass("appeared").addClass("disappeared")
+        }
     }
-
-
-
 
 });

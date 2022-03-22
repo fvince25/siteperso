@@ -32,6 +32,11 @@ class NavbarMenu
      */
     private $createdat;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $textreplace;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class NavbarMenu
     public function setCreatedat(\DateTimeInterface $createdat): self
     {
         $this->createdat = $createdat;
+
+        return $this;
+    }
+
+    public function getTextreplace(): ?string
+    {
+        return $this->textreplace;
+    }
+
+    public function setTextreplace(string $textreplace): self
+    {
+        $this->textreplace = $textreplace;
 
         return $this;
     }

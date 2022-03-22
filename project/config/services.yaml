@@ -39,3 +39,11 @@ services:
 #        arguments: ["@request_stack"]
 #        tags:
 #            - { name: knp_menu.menu, alias: main }
+
+#
+#    App\EventDispatcher\PrenomListener:
+#        tags: [ {
+#            name: kernel.event_listener,
+#            event: kernel.request,
+#            method: checkCookies
+#        } ]

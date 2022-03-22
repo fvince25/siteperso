@@ -1,4 +1,4 @@
-<div class="cookies-bloc col-md-4 col-sm-12 button-fixed">
+<div id="cookies-bloc" class="col-md-4 col-sm-12 button-fixed">
     <div class="p-3 pb-4 bg-custom text-white">
         <div class="row">
             <div class="col-10">
@@ -14,8 +14,8 @@
             bas de page. Pour en savoir plus visitez ma page confidentialité 🍪.
         </p>
         <div class="row" style="display: flex;justify-content: space-around">
-            <button type="button" class="btn btn-danger col-5 pr-3">Accepter les cookies</button>
-            <button type="button" class="btn btn-success col-5 pr-3">Refuser les ccookies</button>
+            <a id="accept_cookies" href="{{ path("accept_cookies") }}"  data-ajax ="ajaxCall" type="button" class="btn btn-danger col-5 pr-3">Accepter les cookies</a>
+            <a type="button" class="btn btn-success col-5 pr-3">Refuser les ccookies</a>
         </div>
     </div>
 </div>

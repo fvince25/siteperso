@@ -14,19 +14,28 @@ class AppFixtures extends Fixture
         $menus = [
             [
                 'item' => 'home',
-                'label' => '<i class="fa-solid fa-house"></i>'
+                'label' => '<i class="fa-solid fa-house"></i>',
+                'textreplace' => 'Acceuil'
             ], [
                 'item' => 'profil',
-                'label' => 'Profil'
+                'label' => 'Profil',
+                'textreplace' => 'Profil'
             ], [
                 'item' => 'skills',
-                'label' => 'Compétences'
+                'label' => 'Compétences',
+                'textreplace' => 'Compétences'
             ], [
                 'item' => 'experiences',
-                'label' => 'Expériences'
+                'label' => 'Expériences',
+                'textreplace' => 'Expériences'
             ], [
                 'item' => 'trainings',
-                'label' => 'Formations'
+                'label' => 'Formations',
+                'textreplace' => 'Formations'
+            ], [
+                'item' => 'links',
+                'label' => 'Liens utiles',
+                'textreplace' => 'Liens utiles'
             ]
         ];
 
@@ -36,7 +45,8 @@ class AppFixtures extends Fixture
 
             $menu->setItem($m['item'])
                 ->setLabel($m['label'])
-                ->setCreatedat(new \DateTime());
+                ->setCreatedat(new \DateTime())
+                ->setTextreplace($m['textreplace']);
 
             $manager->persist($menu);
 
