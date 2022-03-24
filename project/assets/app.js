@@ -9,16 +9,24 @@
 import './styles/app.scss';
 
 // You can specify which plugins you need
-import {Tooltip, Toast, Popover} from 'bootstrap';
 
 // start the Stimulus application
-import './bootstrap';
+// import 'bootstrap';
 
+// You can specify which plugins you need
+// import { Tooltip, Toast, Popover, Modal  } from 'bootstrap';
 
-import $ from 'jquery';
+// window.Popper = require('popper.js').default;
+
+window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
+
 
 $(document).ready(function () {
 
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
 
     $('#accept_cookies').click(function () {
         $('#cookies-bloc').removeClass("appeared").addClass("disappeared")

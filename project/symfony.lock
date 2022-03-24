@@ -433,7 +433,7 @@
         },
         "files": [
             "./assets/app.js",
-            "./assets/bootstrap.js",
+            "./assets/bootstrap-old.js",
             "./assets/controllers.json",
             "./assets/controllers/hello_controller.js",
             "./assets/styles/app.css",

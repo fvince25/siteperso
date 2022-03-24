@@ -1,4 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+    <!-- HTML to write -->
+    <a href="#" data-bs-toggle="tooltip" title="Tooltip on top">Hover over me</a>
+
+    <!-- Generated markup by the plugin -->
+    <div class="tooltip bs-tooltip-top" role="tooltip">
+        <div class="arrow"></div>
+        <div class="tooltip-inner">
+            Some tooltip text!
+        </div>
+    </div>
+
+    {% for skillCat in categorySkillRepository.findAll() %}
+        <div class="row p-4">
+            <h2>{{ skillCat.label }}</h2>
+            <div class="row pb-5">
+                {% for skill in skillCat.skills %}
+                    {% include 'general/skills/skill.html.twig' with {value : skill.level , name : skill.label} %}
+                {% endfor %}
+            </div>
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block specificJS %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('skills') }}
 {% endblock %}
